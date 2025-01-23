@@ -272,6 +272,10 @@
         "outbound": "GLOBAL"
       },
       {
+        "domain_suffix": [
+          "googleapis.cn",
+          "xn--ngstr-lra8j.com"
+        ],
         "rule_set": [
           "google-cn"
         ],
