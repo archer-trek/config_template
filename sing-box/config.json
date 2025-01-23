@@ -273,6 +273,21 @@
       },
       {
         "rule_set": [
+          "private",
+          "privateip"
+        ],
+        "outbound": "DIRECT"
+      },
+      {
+        "rule_set": [
+          "microsoft-cn",
+          "apple-cn",
+          "games-cn"
+        ],
+        "outbound": "DIRECT"
+      },
+      {
+        "rule_set": [
           "google-cn"
         ],
         "outbound": "节点选择"
@@ -316,16 +331,6 @@
       },
       {
         "rule_set": [
-          "microsoft-cn",
-          "apple-cn",
-          "games-cn"
-        ],
-        "outbound": "DIRECT"
-      },
-      {
-        "rule_set": [
-          "private",
-          "privateip",
           "cn",
           "cnip"
         ],
