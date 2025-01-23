@@ -279,18 +279,6 @@
       },
       {
         "rule_set": [
-          "private",
-          "privateip",
-          "microsoft-cn",
-          "apple-cn",
-          "games-cn",
-          "cn",
-          "cnip"
-        ],
-        "outbound": "DIRECT"
-      },
-      {
-        "rule_set": [
           "ads"
         ],
         "outbound": "广告拦截"
@@ -325,6 +313,23 @@
           "proxy"
         ],
         "outbound": "节点选择"
+      },
+      {
+        "rule_set": [
+          "microsoft-cn",
+          "apple-cn",
+          "games-cn"
+        ],
+        "outbound": "DIRECT"
+      },
+      {
+        "rule_set": [
+          "private",
+          "privateip",
+          "cn",
+          "cnip"
+        ],
+        "outbound": "DIRECT"
       }
     ],
     "rule_set": [
