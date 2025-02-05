@@ -237,6 +237,12 @@
         "outbound": "DIRECT"
       },
       {
+        "domain_suffix": [
+          "sensorsdata.cn"
+        ],
+        "outbound": "DIRECT"
+      },
+      {
         "rule_set": [
           "ads"
         ],
