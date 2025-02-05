@@ -8,7 +8,7 @@
       "enabled": true
     },
     "clash_api": {
-      "external_controller": "0.0.0.0:9999",
+      "external_controller": "127.0.0.1:9090",
       "external_ui": "ui",
       "secret": "",
       "default_mode": "rule"
@@ -35,30 +35,12 @@
         "detour": "DIRECT"
       },
       {
-        "tag": "block",
-        "address": "rcode://success"
-      },
-      {
         "tag": "local",
         "address": "local",
         "detour": "DIRECT"
       }
     ],
     "rules": [
-      {
-        "outbound": [
-          "any"
-        ],
-        "server": "dns_direct"
-      },
-      {
-        "clash_mode": "global",
-        "server": "dns_proxy"
-      },
-      {
-        "clash_mode": "direct",
-        "server": "dns_direct"
-      },
       {
         "rule_set": [
           "proxy"
@@ -79,9 +61,27 @@
       "address": [
         "172.19.0.1/30"
       ],
+      "route_exclude_address": [
+        "0.0.0.0/8",
+        "10.0.0.0/8",
+        "100.64.0.0/10",
+        "127.0.0.0/8",
+        "169.254.0.0/16",
+        "192.0.0.0/24",
+        "192.0.2.0/24",
+        "192.168.0.0/16",
+        "192.88.99.0/24",
+        "198.18.0.0/15",
+        "198.51.100.0/24",
+        "203.0.113.0/24",
+        "224.0.0.0/3",
+        "::/127",
+        "fc00::/7",
+        "fe80::/10",
+        "ff00::/8"
+      ],
       "auto_route": true,
-      "strict_route": true,
-      "sniff": true
+      "strict_route": true
     }
   ],
   "outbounds": [
@@ -156,22 +156,11 @@
       "interrupt_exist_connections": false
     },
     {
-      "tag": "广告拦截",
-      "type": "selector",
-      "outbounds": [
-        "REJECT"
-      ]
-    },
-    {
       "tag": "全球直连",
       "type": "selector",
       "outbounds": [
         "DIRECT"
       ]
-    },
-    {
-      "tag": "REJECT",
-      "type": "block"
     },
     {
       "tag": "DIRECT",
@@ -182,7 +171,6 @@
       "type": "selector",
       "outbounds": [
         "DIRECT",
-        "REJECT",
         "香港节点",
         "台湾节点",
         "日本节点",
@@ -193,10 +181,6 @@
       ],
       "default": "DIRECT",
       "interrupt_exist_connections": false
-    },
-    {
-      "tag": "dns-out",
-      "type": "dns"
     },
     {
       "tag": "香港节点",
@@ -258,18 +242,11 @@
   "route": {
     "rules": [
       {
-        "protocol": [
-          "dns"
-        ],
-        "outbound": "dns-out"
+        "action": "sniff"
       },
       {
-        "clash_mode": "direct",
-        "outbound": "DIRECT"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "GLOBAL"
+        "protocol": "dns",
+        "action": "hijack-dns"
       },
       {
         "rule_set": [
@@ -277,6 +254,12 @@
           "privateip"
         ],
         "outbound": "DIRECT"
+      },
+      {
+        "rule_set": [
+          "ads"
+        ],
+        "action": "reject"
       },
       {
         "rule_set": [
@@ -288,27 +271,9 @@
       },
       {
         "rule_set": [
-          "google-cn"
-        ],
-        "outbound": "节点选择"
-      },
-      {
-        "rule_set": [
-          "ads"
-        ],
-        "outbound": "广告拦截"
-      },
-      {
-        "rule_set": [
           "ai"
         ],
         "outbound": "人工智能"
-      },
-      {
-        "rule_set": [
-          "telegramip"
-        ],
-        "outbound": "节点选择"
       },
       {
         "rule_set": [
@@ -325,7 +290,9 @@
       },
       {
         "rule_set": [
-          "proxy"
+          "proxy",
+          "telegramip",
+          "google-cn"
         ],
         "outbound": "节点选择"
       },
