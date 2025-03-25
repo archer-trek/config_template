@@ -261,6 +261,9 @@
         "rule_set": [
           "ai"
         ],
+        "domain": [
+          "aistudio.google.com"
+        ],
         "outbound": "人工智能"
       },
       {
