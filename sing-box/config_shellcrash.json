@@ -1,0 +1,332 @@
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    },
+    "clash_api": {
+      "external_controller": "0.0.0.0:9090",
+      "external_ui": "ui",
+      "secret": "",
+      "default_mode": "rule"
+    }
+  },
+  "outbounds": [
+    {
+      "tag": "节点选择",
+      "type": "selector",
+      "outbounds": [
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
+        "土耳其节点",
+        "马来西亚节点"
+      ],
+      "default": "香港节点",
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "漏网之鱼",
+      "type": "selector",
+      "outbounds": [
+        "节点选择",
+        "全球直连"
+      ],
+      "default": "节点选择",
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "人工智能",
+      "type": "selector",
+      "outbounds": [
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
+        "土耳其节点",
+        "马来西亚节点"
+      ],
+      "default": "新加坡节点",
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "奈飞",
+      "type": "selector",
+      "outbounds": [
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
+        "土耳其节点",
+        "马来西亚节点"
+      ],
+      "default": "香港节点",
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "迪士尼",
+      "type": "selector",
+      "outbounds": [
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
+        "土耳其节点",
+        "马来西亚节点"
+      ],
+      "default": "香港节点",
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "全球直连",
+      "type": "selector",
+      "outbounds": [
+        "DIRECT"
+      ]
+    },
+    {
+      "tag": "REJECT",
+      "type": "block"
+    },
+    {
+      "tag": "DIRECT",
+      "type": "direct"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
+    },
+    {
+      "tag": "香港节点",
+      "type": "urltest",
+      "outbounds": [
+        "{(?i)港|hk|hongkong|hong kong}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "台湾节点",
+      "type": "urltest",
+      "outbounds": [
+        "{(?i)台|tw|taiwan}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "日本节点",
+      "type": "urltest",
+      "outbounds": [
+        "{(?i)日本|jp|japan}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "新加坡节点",
+      "type": "urltest",
+      "outbounds": [
+        "{(?i)新|sg|singapore}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "美国节点",
+      "type": "urltest",
+      "outbounds": [
+        "{(?i)美|us|unitedstates|united states}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "土耳其节点",
+      "type": "urltest",
+      "outbounds": [
+        "{土耳其}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "马来西亚节点",
+      "type": "urltest",
+      "outbounds": [
+        "{马来西亚}"
+      ],
+      "interrupt_exist_connections": false
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": [
+          "dns"
+        ],
+        "outbound": "dns-out"
+      },
+      {
+        "rule_set": [
+          "private",
+          "privateip"
+        ],
+        "outbound": "DIRECT"
+      },
+      {
+        "domain_suffix": [
+          "sensorsdata.cn"
+        ],
+        "outbound": "DIRECT"
+      },
+      {
+        "rule_set": [
+          "ads"
+        ],
+        "outbound": "REJECT"
+      },
+      {
+        "rule_set": [
+          "microsoft-cn",
+          "apple-cn",
+          "games-cn"
+        ],
+        "outbound": "DIRECT"
+      },
+      {
+        "rule_set": [
+          "ai"
+        ],
+        "domain": [
+          "aistudio.google.com"
+        ],
+        "outbound": "人工智能"
+      },
+      {
+        "rule_set": [
+          "netflix",
+          "netflixip"
+        ],
+        "outbound": "奈飞"
+      },
+      {
+        "rule_set": [
+          "disney"
+        ],
+        "outbound": "迪士尼"
+      },
+      {
+        "rule_set": [
+          "proxy",
+          "telegramip",
+          "google-cn"
+        ],
+        "outbound": "节点选择"
+      },
+      {
+        "rule_set": [
+          "cn",
+          "cnip"
+        ],
+        "outbound": "DIRECT"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/private.srs"
+      },
+      {
+        "tag": "ads",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/ads.srs"
+      },
+      {
+        "tag": "microsoft-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/microsoft-cn.srs"
+      },
+      {
+        "tag": "apple-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/apple-cn.srs"
+      },
+      {
+        "tag": "google-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/google-cn.srs"
+      },
+      {
+        "tag": "games-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/games-cn.srs"
+      },
+      {
+        "tag": "ai",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/ai.srs"
+      },
+      {
+        "tag": "proxy",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/proxy.srs"
+      },
+      {
+        "tag": "cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cn.srs"
+      },
+      {
+        "tag": "telegramip",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/telegramip.srs"
+      },
+      {
+        "tag": "privateip",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/privateip.srs"
+      },
+      {
+        "tag": "cnip",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cnip.srs"
+      },
+      {
+        "tag": "netflix",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflix.srs"
+      },
+      {
+        "tag": "netflixip",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflixip.srs"
+      },
+      {
+        "tag": "disney",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/disney.srs"
+      }
+    ],
+    "final": "漏网之鱼",
+    "auto_detect_interface": true
+  }
+}
