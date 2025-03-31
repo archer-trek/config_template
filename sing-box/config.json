@@ -300,90 +300,105 @@
         "tag": "private",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/private.srs"
       },
       {
         "tag": "ads",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/ads.srs"
       },
       {
         "tag": "microsoft-cn",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/microsoft-cn.srs"
       },
       {
         "tag": "apple-cn",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/apple-cn.srs"
       },
       {
         "tag": "google-cn",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/google-cn.srs"
       },
       {
         "tag": "games-cn",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/games-cn.srs"
       },
       {
         "tag": "ai",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/ai.srs"
       },
       {
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/proxy.srs"
       },
       {
         "tag": "cn",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/cn.srs"
       },
       {
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/telegramip.srs"
       },
       {
         "tag": "privateip",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/privateip.srs"
       },
       {
         "tag": "cnip",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/cnip.srs"
       },
       {
         "tag": "netflix",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/netflix.srs"
       },
       {
         "tag": "netflixip",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/netflixip.srs"
       },
       {
         "tag": "disney",
         "type": "remote",
         "format": "binary",
+        "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/disney.srs"
       }
     ],
