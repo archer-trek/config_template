@@ -42,6 +42,12 @@
     ],
     "rules": [
       {
+        "domain_suffix": [
+          "sensorsdata.cn"
+        ],
+        "server": "dns_direct"
+      },
+      {
         "rule_set": [
           "ads"
         ],
