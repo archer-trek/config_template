@@ -21,27 +21,32 @@
         "tag": "dns_proxy",
         "address": "https://1.0.0.1/dns-query",
         "strategy": "ipv4_only",
-        "address_resolver": "dns_resolver",
+        "address_resolver": "local",
         "client_subnet": "114.114.114.114"
       },
       {
         "tag": "dns_direct",
         "address": "https://223.5.5.5/dns-query",
-        "address_resolver": "dns_resolver",
-        "detour": "DIRECT"
-      },
-      {
-        "tag": "dns_resolver",
-        "address": "223.5.5.5",
+        "address_resolver": "local",
         "detour": "DIRECT"
       },
       {
         "tag": "local",
-        "address": "local",
+        "address": "dhcp://auto",
         "detour": "DIRECT"
+      },
+      {
+        "tag": "block",
+        "address": "rcode://success"
       }
     ],
     "rules": [
+      {
+        "rule_set": [
+          "ads"
+        ],
+        "server": "block"
+      },
       {
         "rule_set": [
           "proxy"
