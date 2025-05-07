@@ -1,6 +1,6 @@
 {
   "log": {
-    "level": "info",
+    "level": "warn",
     "timestamp": true
   },
   "experimental": {
@@ -22,7 +22,8 @@
         "address": "https://1.0.0.1/dns-query",
         "strategy": "ipv4_only",
         "address_resolver": "local",
-        "client_subnet": "114.114.114.114"
+        "client_subnet": "114.114.114.114",
+        "detour": "DNS"
       },
       {
         "tag": "dns_direct",
@@ -41,6 +42,20 @@
       }
     ],
     "rules": [
+      {
+        "clash_mode": "direct",
+        "server": "dns_direct"
+      },
+      {
+        "network_type": [
+          "wifi"
+        ],
+        "wifi_ssid": [
+          "sanzhixiaoxiong",
+          "sanzhixiaoxiong_5G"
+        ],
+        "server": "dns_direct"
+      },
       {
         "domain_suffix": [
           "sensorsdata.cn"
@@ -98,9 +113,24 @@
       "type": "selector",
       "outbounds": [
         "节点选择",
-        "全球直连"
+        "DIRECT"
       ],
       "default": "节点选择",
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "DNS",
+      "type": "selector",
+      "outbounds": [
+        "香港节点",
+        "台湾节点",
+        "日本节点",
+        "新加坡节点",
+        "美国节点",
+        "土耳其节点",
+        "马来西亚节点"
+      ],
+      "default": "台湾节点",
       "interrupt_exist_connections": false
     },
     {
@@ -149,31 +179,8 @@
       "interrupt_exist_connections": false
     },
     {
-      "tag": "全球直连",
-      "type": "selector",
-      "outbounds": [
-        "DIRECT"
-      ]
-    },
-    {
       "tag": "DIRECT",
       "type": "direct"
-    },
-    {
-      "tag": "GLOBAL",
-      "type": "selector",
-      "outbounds": [
-        "DIRECT",
-        "香港节点",
-        "台湾节点",
-        "日本节点",
-        "新加坡节点",
-        "美国节点",
-        "土耳其节点",
-        "马来西亚节点"
-      ],
-      "default": "DIRECT",
-      "interrupt_exist_connections": false
     },
     {
       "tag": "香港节点",
@@ -234,6 +241,10 @@
   ],
   "route": {
     "rules": [
+      {
+        "clash_mode": "direct",
+        "outbound": "DIRECT"
+      },
       {
         "network_type": [
           "wifi"
