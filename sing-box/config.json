@@ -91,6 +91,8 @@
     ],
     "final": "dns_direct",
     "strategy": "prefer_ipv4",
+    "disable_cache": false,
+    "disable_expire": false,
     "independent_cache": false,
     "reverse_mapping": true
   },
