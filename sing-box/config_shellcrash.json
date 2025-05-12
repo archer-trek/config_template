@@ -1,6 +1,6 @@
 {
   "log": {
-    "level": "info",
+    "level": "warn",
     "timestamp": true
   },
   "experimental": {
@@ -213,12 +213,6 @@
       },
       {
         "rule_set": [
-          "ads"
-        ],
-        "outbound": "REJECT"
-      },
-      {
-        "rule_set": [
           "microsoft-cn",
           "apple-cn",
           "games-cn"
@@ -270,13 +264,6 @@
         "format": "binary",
         "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/private.srs"
-      },
-      {
-        "tag": "ads",
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "DIRECT",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/ads.srs"
       },
       {
         "tag": "microsoft-cn",
