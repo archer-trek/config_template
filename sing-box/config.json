@@ -19,31 +19,30 @@
     "servers": [
       {
         "tag": "dns_proxy",
-        "address": "https://1.0.0.1/dns-query",
+        "address": "https://1.1.1.1/dns-query",
         "strategy": "ipv4_only",
-        "address_resolver": "local",
         "client_subnet": "114.114.114.114",
         "detour": "DNS"
       },
       {
         "tag": "dns_direct",
-        "address": "https://223.5.5.5/dns-query",
-        "address_resolver": "local",
+        "address": "https://doh.pub/dns-query",
+        "address_resolver": "dns_dns",
         "detour": "DIRECT"
       },
       {
-        "tag": "local",
-        "address": "local",
+        "tag": "dns_dns",
+        "address": "119.29.29.29",
         "detour": "DIRECT"
-      },
-      {
-        "tag": "block",
-        "address": "rcode://success"
       }
     ],
     "rules": [
       {
-        "clash_mode": "direct",
+        "outbound": "any",
+        "server": "dns_direct"
+      },
+      {
+        "clash_mode": "Direct",
         "server": "dns_direct"
       },
       {
@@ -75,12 +74,6 @@
           "sensorsdata.cn"
         ],
         "server": "dns_direct"
-      },
-      {
-        "rule_set": [
-          "ads"
-        ],
-        "server": "block"
       },
       {
         "rule_set": [
@@ -258,7 +251,7 @@
   "route": {
     "rules": [
       {
-        "clash_mode": "direct",
+        "clash_mode": "Direct",
         "outbound": "DIRECT"
       },
       {
@@ -304,12 +297,6 @@
           "sensorsdata.cn"
         ],
         "outbound": "DIRECT"
-      },
-      {
-        "rule_set": [
-          "ads"
-        ],
-        "action": "reject"
       },
       {
         "rule_set": [
@@ -364,13 +351,6 @@
         "format": "binary",
         "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/private.srs"
-      },
-      {
-        "tag": "ads",
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "DIRECT",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/ads.srs"
       },
       {
         "tag": "microsoft-cn",
