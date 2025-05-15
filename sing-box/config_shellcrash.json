@@ -251,7 +251,6 @@
       },
       {
         "rule_set": [
-          "cn",
           "cnip"
         ],
         "outbound": "DIRECT"
@@ -306,13 +305,6 @@
         "format": "binary",
         "download_detour": "DIRECT",
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/proxy.srs"
-      },
-      {
-        "tag": "cn",
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "DIRECT",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cn.srs"
       },
       {
         "tag": "telegramip",
