@@ -338,7 +338,12 @@
       },
       {
         "rule_set": [
-          "cn",
+          "cn"
+        ],
+        "outbound": "DIRECT"
+      },
+      {
+        "rule_set": [
           "cnip"
         ],
         "outbound": "DIRECT"
