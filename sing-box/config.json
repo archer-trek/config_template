@@ -46,9 +46,6 @@
         "server": "dns_direct"
       },
       {
-        "network_type": [
-          "wifi"
-        ],
         "wifi_ssid": [
           "sanzhixiaoxiong",
           "sanzhixiaoxiong_5G"
@@ -255,9 +252,6 @@
         "outbound": "DIRECT"
       },
       {
-        "network_type": [
-          "wifi"
-        ],
         "wifi_ssid": [
           "sanzhixiaoxiong",
           "sanzhixiaoxiong_5G"
