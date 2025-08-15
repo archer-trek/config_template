@@ -266,6 +266,12 @@
         "action": "hijack-dns"
       },
       {
+        "ip_cidr": [
+          "104.223.57.43"
+        ],
+        "outbound": "DIRECT"
+      },
+      {
         "rule_set": [
           "private",
           "privateip"
