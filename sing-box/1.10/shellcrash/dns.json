@@ -1,0 +1,67 @@
+{
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns_proxy",
+        "address": "https://1.1.1.1/dns-query",
+        "strategy": "ipv4_only",
+        "client_subnet": "114.114.114.114",
+        "detour": "DNS"
+      },
+      {
+        "tag": "dns_direct",
+        "address": "https://doh.pub/dns-query",
+        "address_resolver": "dns_dns",
+        "detour": "直连"
+      },
+      {
+        "tag": "dns_dns",
+        "address": "119.29.29.29",
+        "detour": "直连"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "dns_direct"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "dns_direct"
+      },
+      {
+        "wifi_ssid": [
+          "sanzhixiaoxiong",
+          "sanzhixiaoxiong_5G"
+        ],
+        "server": "dns_direct"
+      },
+      {
+        "domain_suffix": [
+          "sensorsdata.cn"
+        ],
+        "server": "dns_direct"
+      },
+      {
+        "rule_set": [
+          "microsoft-cn",
+          "apple-cn",
+          "games-cn"
+        ],
+        "server": "dns_direct"
+      },
+      {
+        "rule_set": [
+          "proxy"
+        ],
+        "server": "dns_proxy"
+      }
+    ],
+    "final": "dns_direct",
+    "strategy": "prefer_ipv4",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "reverse_mapping": true
+  }
+}
