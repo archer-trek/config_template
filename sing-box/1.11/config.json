@@ -108,7 +108,7 @@
         "ALL",
         "直连"
       ],
-      "default": "新加坡节点",
+      "default": "香港节点",
       "interrupt_exist_connections": false
     },
     {
@@ -152,7 +152,7 @@
         "马来西亚节点",
         "自建节点"
       ],
-      "default": "新加坡节点",
+      "default": "台湾节点",
       "interrupt_exist_connections": false
     },
     {
