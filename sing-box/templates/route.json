@@ -2,6 +2,13 @@
   "route": {
     "rules": [
       {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
         "clash_mode": "direct",
         "outbound": "直连"
       },
@@ -158,6 +165,10 @@
         "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/disney.srs"
       }
     ],
+    "default_domain_resolver": {
+      "server": "dns_direct",
+      "client_subnet": "114.114.114.114"
+    },
     "final": "默认策略",
     "auto_detect_interface": true
   }

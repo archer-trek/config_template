@@ -96,7 +96,10 @@
     },
     {
       "tag": "直连",
-      "type": "direct"
+      "type": "direct",
+      "domain_resolver": {
+        "server": "dns_dns"
+      }
     },
     {
       "tag": "香港节点",

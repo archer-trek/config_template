@@ -70,35 +70,17 @@ if __name__ == '__main__':
             'templates/inbounds.json', 'templates/outbounds.json', 'templates/route.json',
         ],
         [
-            lambda x: _insert_custom_rules(x, [
-                {
-                    "action": "sniff"
-                },
-                {
-                    "protocol": "dns",
-                    "action": "hijack-dns"
-                },]),
+            _replace_rule_set_url
         ],
-        '1.11/config.json')
+        '1.12/config.json')
 
     merge(
         [
             'templates/outbounds.json', 'templates/route.json',
         ],
         [
-            lambda x: _insert_custom_rules(x, [
-                {
-                    "protocol": [
-                        "dns"
-                    ],
-                    "outbound": "dns-out"
-                }]),
-            lambda x: x.update({'outbounds': x['outbounds'] + [{
-                "tag": "dns-out",
-                "type": "dns"
-            }]}),
             _replace_rule_set_url
         ],
-        '1.10/shellcrash/config.json')
+        '1.12/shellcrash/config.json')
 
-    merge(['templates/dns.json'], None, '1.10/shellcrash/dns.json')
+    merge(['templates/dns.json'], None, '1.12/shellcrash/dns.json')
