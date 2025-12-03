@@ -3,28 +3,24 @@
     "servers": [
       {
         "tag": "dns_proxy",
-        "address": "https://1.1.1.1/dns-query",
-        "strategy": "ipv4_only",
-        "client_subnet": "114.114.114.114",
+        "type": "https",
+        "server": "1.1.1.1",
         "detour": "DNS"
       },
       {
         "tag": "dns_direct",
-        "address": "https://doh.pub/dns-query",
-        "address_resolver": "dns_dns",
+        "type": "https",
+        "server": "doh.pub",
         "detour": "直连"
       },
       {
         "tag": "dns_dns",
-        "address": "119.29.29.29",
+        "type": "udp",
+        "server": "119.29.29.29",
         "detour": "直连"
       }
     ],
     "rules": [
-      {
-        "outbound": "any",
-        "server": "dns_direct"
-      },
       {
         "clash_mode": "direct",
         "server": "dns_direct"

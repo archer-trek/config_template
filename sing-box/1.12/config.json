@@ -19,28 +19,24 @@
     "servers": [
       {
         "tag": "dns_proxy",
-        "address": "https://1.1.1.1/dns-query",
-        "strategy": "ipv4_only",
-        "client_subnet": "114.114.114.114",
+        "type": "https",
+        "server": "1.1.1.1",
         "detour": "DNS"
       },
       {
         "tag": "dns_direct",
-        "address": "https://doh.pub/dns-query",
-        "address_resolver": "dns_dns",
+        "type": "https",
+        "server": "doh.pub",
         "detour": "直连"
       },
       {
         "tag": "dns_dns",
-        "address": "119.29.29.29",
+        "type": "udp",
+        "server": "119.29.29.29",
         "detour": "直连"
       }
     ],
     "rules": [
-      {
-        "outbound": "any",
-        "server": "dns_direct"
-      },
       {
         "clash_mode": "direct",
         "server": "dns_direct"
@@ -189,7 +185,10 @@
     },
     {
       "tag": "直连",
-      "type": "direct"
+      "type": "direct",
+      "domain_resolver": {
+        "server": "dns_dns"
+      }
     },
     {
       "tag": "香港节点",
@@ -343,93 +342,97 @@
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/private.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/private.srs"
       },
       {
         "tag": "microsoft-cn",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/microsoft-cn.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/microsoft-cn.srs"
       },
       {
         "tag": "apple-cn",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/apple-cn.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/apple-cn.srs"
       },
       {
         "tag": "google-cn",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/google-cn.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/google-cn.srs"
       },
       {
         "tag": "games-cn",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/games-cn.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/games-cn.srs"
       },
       {
         "tag": "ai",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/ai.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/ai.srs"
       },
       {
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/proxy.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/proxy.srs"
       },
       {
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/telegramip.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/telegramip.srs"
       },
       {
         "tag": "privateip",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/privateip.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/privateip.srs"
       },
       {
         "tag": "cnip",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/cnip.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cnip.srs"
       },
       {
         "tag": "netflix",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/netflix.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflix.srs"
       },
       {
         "tag": "netflixip",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/netflixip.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflixip.srs"
       },
       {
         "tag": "disney",
         "type": "remote",
         "format": "binary",
         "download_detour": "直连",
-        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/disney.srs"
+        "url": "https://gh-proxy.com/github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/disney.srs"
       }
     ],
+    "default_domain_resolver": {
+      "server": "dns_dns",
+      "client_subnet": "114.114.114.114"
+    },
     "final": "默认策略",
     "auto_detect_interface": true
   }
