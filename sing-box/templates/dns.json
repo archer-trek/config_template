@@ -11,13 +11,12 @@
         "tag": "dns_direct",
         "type": "https",
         "server": "doh.pub",
-        "detour": "直连"
+        "domain_resolver": "dns_resolver"
       },
       {
-        "tag": "dns_dns",
+        "tag": "dns_resolver",
         "type": "udp",
-        "server": "119.29.29.29",
-        "detour": "直连"
+        "server": "119.29.29.29"
       }
     ],
     "rules": [
