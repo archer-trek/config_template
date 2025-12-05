@@ -27,13 +27,12 @@
         "tag": "dns_direct",
         "type": "https",
         "server": "doh.pub",
-        "detour": "直连"
+        "domain_resolver": "dns_resolver"
       },
       {
-        "tag": "dns_dns",
+        "tag": "dns_resolver",
         "type": "udp",
-        "server": "119.29.29.29",
-        "detour": "直连"
+        "server": "119.29.29.29"
       }
     ],
     "rules": [
@@ -185,10 +184,7 @@
     },
     {
       "tag": "直连",
-      "type": "direct",
-      "domain_resolver": {
-        "server": "dns_dns"
-      }
+      "type": "direct"
     },
     {
       "tag": "香港节点",
@@ -430,7 +426,7 @@
       }
     ],
     "default_domain_resolver": {
-      "server": "dns_dns",
+      "server": "dns_resolver",
       "client_subnet": "114.114.114.114"
     },
     "final": "默认策略",

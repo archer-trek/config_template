@@ -96,10 +96,7 @@
     },
     {
       "tag": "直连",
-      "type": "direct",
-      "domain_resolver": {
-        "server": "dns_dns"
-      }
+      "type": "direct"
     },
     {
       "tag": "香港节点",
@@ -341,7 +338,7 @@
       }
     ],
     "default_domain_resolver": {
-      "server": "dns_dns",
+      "server": "dns_resolver",
       "client_subnet": "114.114.114.114"
     },
     "final": "默认策略",
