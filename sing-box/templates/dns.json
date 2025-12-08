@@ -16,7 +16,7 @@
       {
         "tag": "dns_resolver",
         "type": "tcp",
-        "server": "233.5.5.5"
+        "server": "223.5.5.5"
       }
     ],
     "rules": [
