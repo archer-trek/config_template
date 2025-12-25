@@ -26,8 +26,7 @@
       },
       {
         "wifi_ssid": [
-          "sanzhixiaoxiong",
-          "sanzhixiaoxiong_5G"
+          "sanzhixiaoxiong"
         ],
         "server": "dns_direct"
       },
@@ -39,9 +38,7 @@
       },
       {
         "rule_set": [
-          "microsoft-cn",
-          "apple-cn",
-          "games-cn"
+          "cn"
         ],
         "server": "dns_direct"
       },
