@@ -38,6 +38,12 @@
         "server": "dns_direct"
       },
       {
+        "domain": [
+          "stun.easyvoip.com"
+        ],
+        "server": "dns_direct"
+      },
+      {
         "domain_suffix": [
           "sensorsdata.cn"
         ],
