@@ -21,8 +21,8 @@
     ],
     "rules": [
       {
-        "domain_suffix": [
-          "in-addr.arpa"
+        "domain_keyword": [
+          "_dns-sd._udp"
         ],
         "action": "predefined",
         "rcode": "NXDOMAIN"
