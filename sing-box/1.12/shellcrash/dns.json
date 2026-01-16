@@ -21,6 +21,13 @@
     ],
     "rules": [
       {
+        "domain_suffix": [
+          "in-addr.arpa"
+        ],
+        "action": "predefined",
+        "rcode": "NXDOMAIN"
+      },
+      {
         "clash_mode": "direct",
         "server": "dns_direct"
       },
@@ -50,7 +57,7 @@
       }
     ],
     "final": "dns_direct",
-    "strategy": "prefer_ipv4",
+    "strategy": "ipv4_only",
     "disable_cache": false,
     "disable_expire": false,
     "independent_cache": false,
