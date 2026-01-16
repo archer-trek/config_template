@@ -204,6 +204,12 @@
         "outbound": "直连"
       },
       {
+        "domain": [
+          "stun.easyvoip.com"
+        ],
+        "outbound": "直连"
+      },
+      {
         "domain_suffix": [
           "sensorsdata.cn"
         ],
